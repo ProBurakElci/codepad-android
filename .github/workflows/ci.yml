@@ -11,12 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
 
-      - uses: android-actions/setup-android@v3
+      # No setup-android step: the runner already ships the SDK at
+      # $ANDROID_HOME, and the action that installs one tries to fetch the
+      # long-obsolete "tools" package and dies. Gradle downloads whatever
+      # platform this project needs on its own.
+      - name: Accept the SDK licences
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
 
       - uses: gradle/actions/setup-gradle@v4
 
