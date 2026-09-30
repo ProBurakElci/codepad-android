@@ -48,6 +48,9 @@
     const more = document.createElement("button");
     more.id = "more";
     more.type = "button";
+    // Without this it falls back to the browser's own button, which is a
+    // light grey slab and looks broken sitting next to the real ones.
+    more.className = "btn";
     more.textContent = "More";
     more.title = "Save as, send, new file";
     more.onclick = function () { showSheet(sheet.hidden); };

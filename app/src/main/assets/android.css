@@ -5,10 +5,13 @@
  * the app is around - so this file changes nothing when the same assets are
  * opened in a browser.
  *
- * Two things drive all of it. Taps need targets a thumb can hit, which the
- * desktop toolbar's 13px buttons are not. And the editor and the output cannot
- * sit side by side on a 380px screen, so they stack, with the output taking
- * the bottom third and growing when there is something in it.
+ * It names no colours of its own. Everything comes from the tokens in
+ * styles.css, so the light and dark appearances arrive here for free and
+ * cannot drift away from the ones the Android theme uses for the status bar.
+ *
+ * Two things drive the rest. Taps need targets a thumb can hit, which the
+ * 12px desktop toolbar buttons are not. And the editor and the output cannot
+ * sit side by side on a 380px screen, so they stack.
  */
 
 .is-android {
@@ -24,7 +27,7 @@
   flex-wrap: wrap;
   gap: 8px;
   padding: 10px 12px;
-  /* clears the status bar on a phone with a notch */
+  /* clears the status bar on a phone with a cutout */
   padding-top: max(10px, env(safe-area-inset-top));
   align-items: center;
 }
@@ -32,40 +35,46 @@
 .is-android .bar-left { gap: 8px; flex: 1 1 100%; }
 .is-android .bar-left strong { font-size: 15px; }
 
+/*
+ * Five buttons across: the appearance switch, which only needs room for one
+ * glyph, and then four that share what is left evenly. The Example button is
+ * the least used thing on a phone and is not one of them.
+ */
 .is-android .bar-right {
   gap: 8px;
   flex: 1 1 100%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 44px repeat(4, 1fr);
 }
+
+.is-android #sample { display: none; }
 
 .is-android .btn {
   /* the smallest target a thumb reliably hits */
   min-height: 44px;
   padding: 0 6px;
   font-size: 13px;
-  border-radius: 11px;
+  border-radius: 9px;
   white-space: nowrap;
 }
+
+.is-android .btn-icon { width: auto; font-size: 15px; }
 
 .is-android #language {
   min-height: 44px;
   font-size: 14px;
   flex: 1;
   min-width: 0;
+  max-width: none;
 }
-
-/* the example button is the least used thing on a phone */
-.is-android #sample { display: none; }
-.is-android .bar-right { grid-template-columns: repeat(4, 1fr); }
 
 .is-android .badge { font-size: 11px; }
 
 .is-android #filename {
   flex: 1 1 100%;
   font-size: 12.5px;
-  color: #93a2bd;
-  font-family: Consolas, "Cascadia Mono", monospace;
+  color: var(--muted);
+  font-family: var(--code-font);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -92,7 +101,7 @@
 .is-android .pane-output {
   flex: 0 0 34%;
   min-height: 120px;
-  border-top: 1px solid #1e2b45;
+  border-top: 1px solid var(--line);
   border-left: 0;
 }
 
@@ -126,7 +135,7 @@
   font-size: 15px;
   line-height: 1.55;
   padding-right: 8px;
-  min-width: 34px;
+  min-width: 36px;
 }
 
 .is-android .status { font-size: 11.5px; padding: 5px 12px; }
@@ -134,7 +143,7 @@
 .is-android .pane-head { padding: 8px 12px; font-size: 12px; }
 .is-android .link-btn { min-height: 34px; padding: 0 10px; }
 
-/* the footer is a paragraph about privacy - it belongs in the app's About, not here */
+/* the footer is a paragraph about privacy - it belongs in About, not here */
 .is-android footer { display: none; }
 
 /* ---------------- the More sheet ---------------- */
@@ -149,10 +158,10 @@
   flex-direction: column;
   gap: 2px;
   padding: 8px;
-  border-radius: 16px;
-  background: #101a2c;
-  border: 1px solid #1e2b45;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  border-radius: 14px;
+  background: var(--chrome);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px var(--shadow);
 }
 
 .is-android #sheet[hidden] { display: none; }
@@ -162,18 +171,19 @@
   text-align: left;
   padding: 0 14px;
   font-size: 15px;
-  color: #e9eefa;
+  color: var(--text);
   background: transparent;
   border: 0;
-  border-radius: 11px;
+  border-radius: 10px;
   font-family: inherit;
 }
-.is-android #sheet button:active { background: #182640; }
+.is-android #sheet button:active { background: var(--line-soft); }
 
 /* ---------------- small phones ---------------- */
 
 @media (max-width: 360px) {
   .is-android .btn { font-size: 12px; padding: 0 4px; }
+  .is-android .bar-right { grid-template-columns: 38px repeat(4, 1fr); }
   .is-android #input,
   .is-android .layer,
   .is-android .gutter { font-size: 14px; }

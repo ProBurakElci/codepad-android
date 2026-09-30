@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Light appearance. The values here must match the light tokens at the top of
+  assets/styles.css, or the system chrome and the page disagree at the seam.
+-->
 <resources>
-    <!-- the same background the editor page uses, so there is no flash on start -->
-    <color name="window">#0b1120</color>
-    <color name="bar">#0b1120</color>
-    <color name="accent">#38bdf8</color>
+    <color name="window">#FFFFFF</color>
+    <color name="bar">#F3F3F5</color>
+    <color name="accent">#007AFF</color>
 </resources>

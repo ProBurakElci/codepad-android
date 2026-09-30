@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Dark appearance, matching the dark tokens in assets/styles.css - which are
+  Xcode's Default (Dark) editor background and toolbar.
+-->
+<resources>
+    <color name="window">#1F1F24</color>
+    <color name="bar">#2A2A2E</color>
+    <color name="accent">#0A84FF</color>
+</resources>

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--
-      The editor is dark, so the app is dark: a light system theme would show
-      a white flash before the page paints, and a white status bar above it.
+      DayNight, so the app follows the system the way the page does. The two
+      have to agree: a white page under a dark status bar looks broken, and
+      the status bar is the one part of the window the page cannot paint.
+
+      windowLightStatusBar is true here and false in values-night, which is
+      what makes the clock and the battery icon readable either way.
     -->
-    <style name="Theme.Codepad" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.Codepad" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/bar</item>
         <item name="android:navigationBarColor">@color/bar</item>
         <item name="android:windowBackground">@color/window</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
         <item name="colorAccent">@color/accent</item>
     </style>
 </resources>
