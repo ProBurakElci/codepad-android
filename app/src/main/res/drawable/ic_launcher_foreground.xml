@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The `</>` mark, drawn on the 108dp adaptive-icon canvas. Only the middle
+  72dp is guaranteed to be visible - a launcher may crop the rest to any shape
+  it likes - so everything here stays inside roughly the middle two thirds.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- left bracket -->
+    <path
+        android:pathData="M45,38 L32,54 L45,70"
+        android:strokeColor="#38bdf8"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- right bracket -->
+    <path
+        android:pathData="M63,38 L76,54 L63,70"
+        android:strokeColor="#38bdf8"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- the slash between them -->
+    <path
+        android:pathData="M58,35 L50,73"
+        android:strokeColor="#f97316"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="round" />
+</vector>

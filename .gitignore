@@ -1,0 +1,14 @@
+# machine specific - the SDK is somewhere else on every machine
+local.properties
+
+.gradle/
+build/
+app/build/
+captures/
+.idea/
+*.iml
+*.apk
+*.aab
+*.keystore
+*.jks
+.DS_Store

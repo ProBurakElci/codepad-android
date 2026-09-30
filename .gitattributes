@@ -1,0 +1,15 @@
+# Checked out with LF everywhere by default.
+* text=auto eol=lf
+
+# These are run by a shell. A CRLF here means "bad interpreter" on Linux and
+# macOS, which is exactly where CI runs them.
+gradlew text eol=lf
+*.sh text eol=lf
+
+# And this one is a Windows batch file, which wants the opposite.
+gradlew.bat text eol=crlf
+
+# Binaries, left alone.
+*.jar binary
+*.png binary
+*.apk binary

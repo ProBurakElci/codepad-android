@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- the same background the editor page uses, so there is no flash on start -->
+    <color name="window">#0b1120</color>
+    <color name="bar">#0b1120</color>
+    <color name="accent">#38bdf8</color>
+</resources>

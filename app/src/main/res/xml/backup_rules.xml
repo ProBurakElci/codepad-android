@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Only the draft the editor keeps in localStorage is worth backing up, and
+  that lives in the WebView's own storage. Nothing else here holds anything.
+-->
+<full-backup-content>
+    <include domain="database" path="." />
+    <exclude domain="cache" path="." />
+</full-backup-content>
